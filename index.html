@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        body,
+        html {
+            width: 100%;
+            height: 100vh;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .box {
+            background-color: blue;
+            border-radius: 10px;
+            width: 80px;
+            height: 40px;
+        }
+
+        .form {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .reset-btn {
+            background-color: aqua;
+            padding: 8px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="main">
+        <div class="box"></div>
+        <form action="" class="form">
+            <label for="color">
+                Color
+                <input onchange="modifyBox(this.value, 'color')" type="color" name="color" id="color">
+            </label>
+
+            <label for="width">
+                Width
+                <input onchange="modifyBox(this.value, 'width')" type="number" name="width" id="width">
+            </label>
+
+            <label for="height">
+                Height
+                <input onchange="modifyBox(this.value, 'height')" type="number" name="height" id="height">
+            </label>
+
+            <label for="border">
+                Border
+                <input onchange="modifyBox(this.value, 'border')" type="number" name="border" id="border">
+            </label>
+
+
+
+            <button class="reset-btn">Reset</button>
+        </form>
+    </main>
+
+    <script>
+        const box = document.querySelector(".box")
+
+        const color = document.querySelector("#color")
+        const width = document.querySelector("#width")
+        const height = document.querySelector("#height")
+        const border = document.querySelector("#border")
+        const reset = document.querySelector(".reset-btn")
+
+        function modifyBox(value, type) {
+            if (type === "color") {
+                box.style.backgroundColor = value
+            } else if (type === "width") {
+                box.style.width = value + "px"
+            } else if (type === "height") {
+                box.style.height = value + "px"
+            } else if (type === "border") {
+                box.style.borderRadius = value + "px"
+            }
+        }
+
+        function resetBox() {
+            box.style.backgroundColor = "blue"
+            box.style.width = "80px"
+            box.style.height = "40px"
+            box.style.borderRadius = "10px"
+        }
+    </script>
+</body>
+
+</html>
