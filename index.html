@@ -77,7 +77,7 @@
 
 
 
-            <button class="reset-btn">Reset</button>
+            <button onclick="resetBox()" class="reset-btn">Reset</button>
         </form>
     </main>
 
@@ -103,6 +103,7 @@
         }
 
         function resetBox() {
+            event.preventDefault()
             box.style.backgroundColor = "blue"
             box.style.width = "80px"
             box.style.height = "40px"
